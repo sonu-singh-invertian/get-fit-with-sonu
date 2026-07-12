@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Fit With Sonu | Personal Fitness Coach</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+
+        /* Navbar Styling */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ff3e3e;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff3e3e;
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            height: 100vh;
+            /* APNI HERO IMAGE KA PATH YAHA DALO (Jaise: images/hero.jpg) */
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('hero-bg.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .hero-content h1 span {
+            color: #ff3e3e;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff3e3e;
+            color: #fff;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #cc2a2a;
+            transform: translateY(-3px);
+        }
+
+        /* Common Section Styling */
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .section-title span {
+            color: #ff3e3e;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #141414;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #222;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: #ff3e3e;
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: #ff3e3e;
+        }
+
+        .service-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Transformations / Portfolio Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid #222;
+            aspect-ratio: 1/1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section Form */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #141414;
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #222;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #ff3e3e;
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #ff3e3e;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #cc2a2a;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #222;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Responsive Setup */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            header { padding: 20px 5%; }
+            nav a { margin-left: 10px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">GetFitWith<span>Sonu</span></div>
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#services">Expertise</a>
+            <a href="#transformations">Results</a>
+            <a href="#contact">Join Now</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Transform Your <span>Physique</span></h1>
+            <p>Get customized muscle-building routines, precision diet plans, and 1-on-1 coaching designed by Sonu to achieve peak volume and definition.</p>
+            <a href="#contact" class="btn">Start Your Journey</a>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+        <h2 class="section-title">My <span>Expertise</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Muscle Volume</h3>
+                <p>Dedicated hypertrophy training routines targeting maximum muscle definition, mass, and proportional growth.</p>
+            </div>
+            <div class="service-card">
+                <h3>Precision Diet</h3>
+                <p>Fully customized Indian diet charts tailored precisely around your daily macro and caloric requirements.</p>
+            </div>
+            <div class="service-card">
+                <h3>1-on-1 Coaching</h3>
+                <p>Direct online support, form correction, and progressive overload tracking to ensure consistent results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSFORMATIONS SECTION -->
+    <section id="transformations">
+        <h2 class="section-title">Client <span>Results</span></h2>
+        <div class="gallery-grid">
+            <!-- Client 1 -->
+            <div class="gallery-item">
+                <!-- APNI CLIENT PHOTOS YAHA LINK KAREIN -->
+                <img src="client1.jpg" alt="Transformation 1">
+                <div class="gallery-caption">12 Weeks Hypertrophy Plan</div>
+            </div>
+            <!-- Client 2 -->
+            <div class="gallery-item">
+                <img src="client2.jpg" alt="Transformation 2">
+                <div class="gallery-caption">Lean Bulking Phase</div>
+            </div>
+            <!-- Client 3 -->
+            <div class="gallery-item">
+                <img src="client3.jpg" alt="Transformation 3">
+                <div class="gallery-caption">Fat Loss & Conditioning</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2 class="section-title">Start <span>Training</span></h2>
+        <div class="contact-container">
+            <!-- Formspree handle setup karne ke liye action link replace karein baad me -->
+            <form action="https://formspree.io/f/your-form-id" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="goal">Your Fitness Goal</label>
+                    <select id="goal" name="goal">
+                        <option value="muscle-building">Muscle Building & Volume</option>
+                        <option value="fat-loss">Fat Loss & Definition</option>
+                        <option value="general-fitness">General Fitness</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell me about your fitness history..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Enquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 GetFitWithSonu. All Rights Reserved. Designed by Sonu.</p>
+    </footer>
+
+</body>
+</html>
