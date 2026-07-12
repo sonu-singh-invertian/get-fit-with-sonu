@@ -110,19 +110,17 @@
         }
         .cta-btn:hover { background: #cc2533; transform: translateY(-2px); }
 
-        /* Separate Full-Width Sections (Ek ke neeche ek) */
+        /* Full-Width Section Blocks (Ek ke neeche ek layout) */
         .section-block {
             padding: 100px 8%;
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        /* Dark & Light alternations for premium feel */
         #about { background-color: #0d1117; }
         #services { background-color: #12161f; }
         #transformations { background-color: #0d1117; }
         #contact { background-color: #12161f; }
 
-        /* Section Container Wrapper */
         .section-container {
             max-width: 900px;
             margin: 0 auto;
@@ -150,6 +148,43 @@
             line-height: 1.8;
         }
 
+        /* About Section Layout with Picture Frame */
+        .about-flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1.3;
+        }
+
+        .about-image-wrapper {
+            flex: 0.7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-frame {
+            position: relative;
+            width: 250px;
+            height: 310px;
+            border-radius: 12px;
+            padding: 5px;
+            background: linear-gradient(145deg, #f22e3e, rgba(0,0,0,0.2));
+            box-shadow: 0 0 25px rgba(242, 46, 62, 0.25);
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #0d1117;
+        }
+
         /* Services Custom Layout */
         .services-list {
             list-style: none;
@@ -162,7 +197,6 @@
             color: #ccc;
             font-size: 1.1rem;
             position: relative;
-            padding-left: 25px;
             background: rgba(0,0,0,0.2);
             padding: 15px 15px 15px 35px;
             border-radius: 8px;
@@ -176,7 +210,7 @@
             font-weight: bold;
         }
 
-        /* Large Transformations Display */
+        /* Transformations Showcase Display */
         .transform-showcase {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -237,13 +271,21 @@
         }
         .form-btn:hover { background: #cc2533; }
 
-        /* Responsive Setup */
+        /* Responsive Settings for Mobile Devices */
         @media (max-width: 768px) {
-            .hero-text-content h1 { font-size: 2.8rem; }
+            .hero-text-content h1 { font-size: 2.5rem; }
+            .about-flex-container { flex-direction: column; text-align: center; gap: 30px; }
             .services-list, .transform-showcase { grid-template-columns: 1fr; }
             header { padding: 15px 5%; }
             nav { display: none; }
             .section-container { padding: 30px 20px; }
+            .section-block h2 {
+                border-left: none;
+                border-bottom: 3px solid #f22e3e;
+                padding-left: 0;
+                padding-bottom: 5px;
+                display: inline-block;
+            }
         }
     </style>
 </head>
@@ -269,11 +311,19 @@
         </div>
     </section>
 
-    <!-- SECTION 1: ABOUT -->
+    <!-- SECTION 1: ABOUT (WITH PHOTO FRAME SPACE) -->
     <section id="about" class="section-block">
-        <div class="section-container">
-            <h2>About Sonu</h2>
-            <p>Dedicated to helping individuals reshape their bodies and reach their maximum potential. Through structured hypertrophy plans and tailored nutrition programs, I provide the exact path needed to gain pure muscle volume, sharp chest/arm thickness, and high-level body conditioning.</p>
+        <div class="section-container about-flex-container">
+            <div class="about-text">
+                <h2>About Sonu</h2>
+                <p>Dedicated to helping individuals reshape their bodies and reach their maximum potential. Through structured hypertrophy plans and tailored nutrition programs, I provide the exact path needed to gain pure muscle volume, sharp chest/arm thickness, and high-level body conditioning.</p>
+            </div>
+            <div class="about-image-wrapper">
+                <div class="profile-frame">
+                    <!-- APNI PHOTO KA RENAME YAHA LAGANA (e.g., sonu-profile.jpg) -->
+                    <img src="https://via.placeholder.com/250x310/1a1a1a/ffffff?text=Sonu+Photo" alt="Sonu Profile">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -312,6 +362,7 @@
     <section id="contact" class="section-block">
         <div class="section-container">
             <h2>Get In Touch</h2>
+            <!-- Formspree handle setup karne ke liye apna Action URL daal dena baad me -->
             <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
