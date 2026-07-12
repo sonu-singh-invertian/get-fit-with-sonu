@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Fit With Sonu | Personal Fitness Coach</title>
-    <!-- Google Fonts for Modern Typography -->
+    <title>GetFitWithSonu | Personal Fitness Coach</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -16,364 +16,263 @@
         }
 
         body {
-            background-color: #0a0a0a;
+            background-color: #0d1117; /* Fallback color */
             color: #ffffff;
+            line-height: 1.6;
         }
 
-        /* Navbar Styling */
-        header {
-            position: fixed;
+        /* Full-screen Hero Background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Start from top to leave space for nav and text */
+            align-items: center;
+            text-align: center;
+        }
+
+        /* YAHA APNI BACKGROUND IMAGE KA LINK LAGAO */
+        .hero-bg {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            padding: 20px 10%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('your-gym-background.jpg') no-repeat center center/cover;
+            z-index: -1;
+        }
+
+        /* Navbar */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid #222;
+            z-index: 10;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
-
-        .logo span {
-            color: #ff3e3e;
-        }
+        .logo span { color: #f22e3e; }
 
         nav a {
             color: #fff;
             text-decoration: none;
             margin-left: 20px;
             font-weight: 700;
-            font-size: 0.9rem;
             text-transform: uppercase;
-            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        .contact-btn {
+            background: #f22e3e;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
-        nav a:hover {
-            color: #ff3e3e;
+        /* Hero Text Area */
+        .hero-text-content {
+            position: relative;
+            z-index: 1;
+            margin-top: 15vh;
+            padding: 0 10%;
+            width: 100%;
         }
 
-        /* Hero Section Styling */
-        .hero {
-            height: 100vh;
-            /* APNI HERO IMAGE KA PATH YAHA DALO (Jaise: images/hero.jpg) */
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('hero-bg.jpg') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
+        .hero-text-content h1 {
+            font-size: 3.5rem;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            line-height: 1.1;
-        }
-
-        .hero-content h1 span {
-            color: #ff3e3e;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            color: #ccc;
+            line-height: 1.2;
+            margin-bottom: 20px;
             max-width: 600px;
-            margin: 0 auto 30px auto;
-            line-height: 1.6;
+            text-align: left;
         }
 
-        .btn {
+        .hero-text-content p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .cta-btn {
             display: inline-block;
-            background: #ff3e3e;
+            background: #f22e3e;
             color: #fff;
             padding: 15px 35px;
             text-decoration: none;
             font-weight: 700;
             border-radius: 5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s ease;
+            float: left; /* Align with text */
         }
 
-        .btn:hover {
-            background: #cc2a2a;
-            transform: translateY(-3px);
-        }
-
-        /* Common Section Styling */
-        section {
-            padding: 100px 10%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 50px;
-            letter-spacing: 1px;
-        }
-
-        .section-title span {
-            color: #ff3e3e;
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: #141414;
-            padding: 40px 30px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #222;
-            transition: 0.3s;
-        }
-
-        .service-card:hover {
-            border-color: #ff3e3e;
-            transform: translateY(-5px);
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            color: #ff3e3e;
-        }
-
-        .service-card p {
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Transformations / Portfolio Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            border: 1px solid #222;
-            aspect-ratio: 1/1;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-caption {
+        /* Glass Cards Styling */
+        .cards-section {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            padding: 20px;
-            text-align: center;
-            font-weight: 700;
+            padding: 0 10% 5vh 10%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            z-index: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05); /* Glass effect */
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .glass-card h3 {
+            font-size: 1.3rem;
             text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .glass-card ul {
+            list-style: none;
+            color: #ccc;
             font-size: 0.9rem;
         }
+        .glass-card ul li { margin-bottom: 8px; }
 
-        /* Contact Section Form */
-        .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #141414;
-            padding: 40px;
-            border-radius: 8px;
-            border: 1px solid #222;
+        /* Transformations grid within glass-card */
+        .transform-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
         }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            color: #ccc;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
+        .transform-grid img {
             width: 100%;
-            padding: 12px;
-            background: #0a0a0a;
+            border-radius: 6px;
+        }
+        .transformation-text {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Contact Form inside glass-card */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .contact-form input, .contact-form textarea {
+            background: rgba(0,0,0,0.3);
             border: 1px solid #333;
             color: #fff;
+            padding: 10px;
             border-radius: 4px;
-            font-size: 1rem;
-        }
-<form action="https://formspree.io/f/meeyjpvd" method="POST">
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            border-color: #ff3e3e;
-            outline: none;
         }
 
-        .submit-btn {
-            width: 100%;
-            background: #ff3e3e;
-            color: #fff;
-            border: none;
-            padding: 15px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: 0.3s;
+        /* Mobile responsiveness */
+        @media (max-width: 992px) {
+            .cards-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero-text-content h1 { font-size: 2.5rem; }
         }
 
-        .submit-btn:hover {
-            background: #cc2a2a;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #222;
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        /* Responsive Setup */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            header { padding: 20px 5%; }
-            nav a { margin-left: 10px; font-size: 0.8rem; }
+        @media (max-width: 600px) {
+            .cards-section {
+                grid-template-columns: 1fr;
+            }
+            header { flex-direction: column; padding: 20px 5%; }
+            nav a { margin: 5px; }
+            .contact-btn { margin-top: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <div class="logo">GetFitWith<span>Sonu</span></div>
-        <nav>
-            <a href="#hero">Home</a>
-            <a href="#services">Expertise</a>
-            <a href="#transformations">Results</a>
-            <a href="#contact">Join Now</a>
-        </nav>
-    </header>
+    <section class="hero">
+        <div class="hero-bg"></div>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1>Transform Your <span>Physique</span></h1>
-            <p>Get customized muscle-building routines, precision diet plans, and 1-on-1 coaching designed by Sonu to achieve peak volume and definition.</p>
-            <a href="#contact" class="btn">Start Your Journey</a>
+        <!-- NAVBAR -->
+        <header>
+            <div class="logo">GetFitWith<span>Sonu</span></div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#transformations">Transformations</a>
+                <a href="#contact" class="contact-btn">Contact</a>
+            </nav>
+        </header>
+
+        <!-- HERO MAIN TEXT -->
+        <div class="hero-text-content">
+            <h1>Transform Your Physique</h1>
+            <p>Get started or take consideration of body muscle mass and hypertrophy for your aesthetic gym growth. Our building program helps your muscle fitness fast through building and resources.</p>
+            <a href="#services" class="cta-btn">Learn Now</a>
         </div>
-    </section>
 
-    <!-- SERVICES SECTION -->
-    <section id="services">
-        <h2 class="section-title">My <span>Expertise</span></h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Muscle Volume</h3>
-                <p>Dedicated hypertrophy training routines targeting maximum muscle definition, mass, and proportional growth.</p>
+        <!-- GLASS CARDS BOTTOM -->
+        <div class="cards-section">
+            
+            <!-- Card 1: About -->
+            <div id="about" class="glass-card">
+                <h3>About Sonu</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
-            <div class="service-card">
-                <h3>Precision Diet</h3>
-                <p>Fully customized Indian diet charts tailored precisely around your daily macro and caloric requirements.</p>
+
+            <!-- Card 2: Services -->
+            <div id="services" class="glass-card">
+                <h3>Our Services</h3>
+                <ul>
+                    <li>Precision Diet</li>
+                    <li>Power Racks</li>
+                    <li>Muscle Isolation Chest</li>
+                    <li>Muscle Isolation Legs</li>
+                    <li>Hypertrophy Training</li>
+                </ul>
             </div>
-            <div class="service-card">
-                <h3>1-on-1 Coaching</h3>
-                <p>Direct online support, form correction, and progressive overload tracking to ensure consistent results.</p>
+
+            <!-- Card 3: Results -->
+            <div id="transformations" class="glass-card">
+                <h3>Client Results</h3>
+                <div class="transform-grid">
+                    <div><img src="client1-before.jpg" alt="Before"><div class="transformation-text">Before</div></div>
+                    <div><img src="client1-after.jpg" alt="After"><div class="transformation-text">After</div></div>
+                </div>
+                <p style="margin-top:10px; color:#ccc; font-size:0.9rem;">2 Week hypertrophy</p>
             </div>
+
+            <!-- Card 4: Contact -->
+            <div id="contact" class="glass-card">
+                <h3>Get In Touch</h3>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Message" rows="2"></textarea>
+                </form>
+            </div>
+
         </div>
-    </section>
 
-    <!-- TRANSFORMATIONS SECTION -->
-    <section id="transformations">
-        <h2 class="section-title">Client <span>Results</span></h2>
-        <div class="gallery-grid">
-            <!-- Client 1 -->
-            <div class="gallery-item">
-                <!-- APNI CLIENT PHOTOS YAHA LINK KAREIN -->
-                <img src="client1.jpg" alt="Transformation 1">
-                <div class="gallery-caption">12 Weeks Hypertrophy Plan</div>
-            </div>
-            <!-- Client 2 -->
-            <div class="gallery-item">
-                <img src="client2.jpg" alt="Transformation 2">
-                <div class="gallery-caption">Lean Bulking Phase</div>
-            </div>
-            <!-- Client 3 -->
-            <div class="gallery-item">
-                <img src="client3.jpg" alt="Transformation 3">
-                <div class="gallery-caption">Fat Loss & Conditioning</div>
-            </div>
-        </div>
     </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-        <h2 class="section-title">Start <span>Training</span></h2>
-        <div class="contact-container">
-            <!-- Formspree handle setup karne ke liye action link replace karein baad me -->
-            <form action="https://formspree.io/f/your-form-id" method="POST">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="goal">Your Fitness Goal</label>
-                    <select id="goal" name="goal">
-                        <option value="muscle-building">Muscle Building & Volume</option>
-                        <option value="fat-loss">Fat Loss & Definition</option>
-                        <option value="general-fitness">General Fitness</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Tell me about your fitness history..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Submit Enquiry</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 GetFitWithSonu. All Rights Reserved. Designed by Sonu.</p>
-    </footer>
 
 </body>
 </html>
