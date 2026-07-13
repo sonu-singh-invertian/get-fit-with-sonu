@@ -428,7 +428,11 @@
     <section id="contact" class="section-block">
         <div class="section-container">
             <h2>Get In Touch</h2>
-            <form class="contact-form" onsubmit="this.action='mailto:sonusingh.in2019@gmail.com?subject=Fitness Enquiry&body=' + encodeURIComponent('Name: ' + this.name.value + '\nEmail: ' + this.email.value + '\nMessage: ' + this.message.value); return true;" method="POST" enctype="text/plain">
+            <!-- Web3Forms Secure Endpoint Integration -->
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <!-- Change "PASTE_YOUR_KEY_HERE" to your real key -->
+                <input type="hidden" name="access_key" value="278d7db8-7f2b-4ad7-9452-8c5ba1c341cf">
+                
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" placeholder="Describe your fitness goals (e.g., Muscle Gain, Fat Loss)..." rows="4" required></textarea>
