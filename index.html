@@ -110,16 +110,17 @@
         }
         .cta-btn:hover { background: #cc2533; transform: translateY(-2px); }
 
-        /* Full-Width Section Blocks (Ek ke neeche ek layout) */
+        /* Full-Width Section Blocks */
         .section-block {
             padding: 100px 8%;
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         #about { background-color: #0d1117; }
-        #services { background-color: #12161f; }
-        #transformations { background-color: #0d1117; }
-        #contact { background-color: #12161f; }
+        #goals-section { background-color: #12161f; }
+        #services { background-color: #0d1117; }
+        #transformations { background-color: #12161f; }
+        #contact { background-color: #0d1117; }
 
         .section-container {
             max-width: 900px;
@@ -142,31 +143,15 @@
             padding-left: 15px;
         }
 
-        .section-block p {
-            font-size: 1.05rem;
-            color: #b3b3b3;
-            line-height: 1.8;
-        }
-
-        /* About Section Layout with Picture Frame */
+        /* About Section Layout */
         .about-flex-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 40px;
         }
-
-        .about-text {
-            flex: 1.3;
-        }
-
-        .about-image-wrapper {
-            flex: 0.7;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
+        .about-text { flex: 1.3; }
+        .about-image-wrapper { flex: 0.7; display: flex; justify-content: center; align-items: center; }
         .profile-frame {
             position: relative;
             width: 250px;
@@ -176,13 +161,76 @@
             background: linear-gradient(145deg, #f22e3e, rgba(0,0,0,0.2));
             box-shadow: 0 0 25px rgba(242, 46, 62, 0.25);
         }
+        .profile-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 2px solid #0d1117; }
 
-        .profile-frame img {
+        /* FITNESS GOALS TABS SYSTEM */
+        .goals-tabs {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+        .tab-btn:hover { background: rgba(242, 46, 62, 0.2); border-color: #f22e3e; }
+        .tab-btn.active { background: #f22e3e; border-color: #f22e3e; box-shadow: 0 0 15px rgba(242, 46, 62, 0.4); }
+
+        .goal-content { display: none; }
+        .goal-content.active { display: block; }
+
+        .tips-container {
+            margin-bottom: 30px;
+            background: rgba(0,0,0,0.3);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #f22e3e;
+        }
+        .tips-container h4 { text-transform: uppercase; margin-bottom: 10px; font-size: 1.2rem; color: #f22e3e; }
+        .tips-container ul { list-style-position: inside; color: #ccc; }
+        .tips-container ul li { margin-bottom: 8px; }
+
+        /* Exercise with Video Box styling */
+        .exercise-workout-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .exercise-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .exercise-info { flex: 1.2; }
+        .exercise-info h5 { font-size: 1.2rem; text-transform: uppercase; margin-bottom: 5px; color: #fff; }
+        .exercise-info p { font-size: 0.9rem; color: #aaa; }
+        
+        .video-box {
+            flex: 0.8;
+            height: 140px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .video-box video, .video-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 8px;
-            border: 2px solid #0d1117;
         }
 
         /* Services Custom Layout */
@@ -191,101 +239,37 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-top: 10px;
         }
         .services-list li { 
-            color: #ccc;
-            font-size: 1.1rem;
-            position: relative;
-            background: rgba(0,0,0,0.2);
-            padding: 15px 15px 15px 35px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.02);
+            color: #ccc; padding: 15px 15px 15px 35px; position: relative;
+            background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(255,255,255,0.02);
         }
-        .services-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 15px;
-            color: #f22e3e;
-            font-weight: bold;
-        }
+        .services-list li::before { content: "✓"; position: absolute; left: 15px; color: #f22e3e; font-weight: bold; }
 
         /* Transformations Showcase Display */
-        .transform-showcase {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .transform-box {
-            text-align: center;
-        }
-        .transform-box img {
-            width: 100%;
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: #1a1a1a;
-        }
-        .transformation-text {
-            color: #888;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+        .transform-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+        .transform-box { text-align: center; }
+        .transform-box img { width: 100%; max-height: 450px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); background: #1a1a1a; }
+        .transformation-text { color: #888; font-size: 0.9rem; margin-top: 10px; text-transform: uppercase; font-weight: 700; }
 
         /* Contact Form Configuration */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .contact-form input, .contact-form textarea {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 1rem;
-            width: 100%;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: #f22e3e;
-            outline: none;
-        }
-        .form-btn {
-            background: #f22e3e;
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+        .contact-form { display: flex; flex-direction: column; gap: 15px; }
+        .contact-form input, .contact-form textarea { background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1); color: #fff; padding: 15px; border-radius: 8px; font-size: 1rem; width: 100%; }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: #f22e3e; outline: none; }
+        .form-btn { background: #f22e3e; color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1rem; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
         .form-btn:hover { background: #cc2533; }
 
-        /* Responsive Settings for Mobile Devices */
+        /* Responsive Settings */
         @media (max-width: 768px) {
             .hero-text-content h1 { font-size: 2.5rem; }
             .about-flex-container { flex-direction: column; text-align: center; gap: 30px; }
-            .services-list, .transform-showcase { grid-template-columns: 1fr; }
+            .services-list, .transform-showcase, .goals-tabs, .exercise-card { grid-template-columns: 1fr; flex-direction: column; }
+            .exercise-card { text-align: center; }
+            .video-box { width: 100%; }
             header { padding: 15px 5%; }
             nav { display: none; }
             .section-container { padding: 30px 20px; }
-            .section-block h2 {
-                border-left: none;
-                border-bottom: 3px solid #f22e3e;
-                padding-left: 0;
-                padding-bottom: 5px;
-                display: inline-block;
-            }
+            .section-block h2 { border-left: none; border-bottom: 3px solid #f22e3e; padding-left: 0; padding-bottom: 5px; display: inline-block; }
         }
     </style>
 </head>
@@ -296,6 +280,7 @@
         <div class="logo">GetFitWith<span>Sonu</span></div>
         <nav>
             <a href="#about">About</a>
+            <a href="#goals-section">Fitness Goals</a>
             <a href="#services">Services</a>
             <a href="#transformations">Transformations</a>
             <a href="#contact" class="contact-btn">Join Now</a>
@@ -307,11 +292,11 @@
         <div class="hero-text-content">
             <h1>Transform Your Physique</h1>
             <p>Get customized muscle-building routines, precision diet plans, and 1-on-1 coaching designed by Sonu to help you achieve peak volume and definition.</p>
-            <a href="#contact" class="cta-btn">Start Today</a>
+            <a href="#goals-section" class="cta-btn">Explore Workouts</a>
         </div>
     </section>
 
-    <!-- SECTION 1: ABOUT (WITH AUTOMATIC SONU.JPG LINK) -->
+    <!-- SECTION 1: ABOUT -->
     <section id="about" class="section-block">
         <div class="section-container about-flex-container">
             <div class="about-text">
@@ -320,14 +305,126 @@
             </div>
             <div class="about-image-wrapper">
                 <div class="profile-frame">
-                    <!-- Yaha maine pehle se hi sonu.jpg likh diya hai, aapko kuch nahi badalna -->
                     <img src="sonu.jpg" alt="Sonu Profile">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: SERVICES -->
+    <!-- NEW SECTION 2: CHOOSE YOUR FITNESS GOAL (DYNAMIC TABS) -->
+    <section id="goals-section" class="section-block">
+        <div class="section-container">
+            <h2>Choose Your Fitness Goal</h2>
+            <p style="margin-bottom: 25px; color: #aaa;">Select a track below to instantly see specialized coach tips and animated exercise demonstrations.</p>
+            
+            <!-- Tab Buttons -->
+            <div class="goals-tabs">
+                <button class="tab-btn active" onclick="openGoal(event, 'bulking')">Mass Bulking</button>
+                <button class="tab-btn" onclick="openGoal(event, 'cutting')">Shredded Cutting</button>
+                <button class="tab-btn" onclick="openGoal(event, 'regular')">Regular Fitness</button>
+            </div>
+
+            <!-- BULKING CONTENT -->
+            <div id="bulking" class="goal-content active">
+                <div class="tips-container">
+                    <h4>🔥 Premium Bulking Tips</h4>
+                    <ul>
+                        <li><strong>Caloric Surplus:</strong> Apni maintenance calories se 300-500 calories zyaada khao.</li>
+                        <li><strong>Progressive Overload:</strong> Har week weights badhao ya reps badhao taaki bicep aur chest volume grow ho.</li>
+                        <li><strong>Protein Content:</strong> At least 1.6g-2g protein per kg bodyweight zaroor lo.</li>
+                    </ul>
+                </div>
+                <div class="exercise-workout-grid">
+                    <div class="exercise-card">
+                        <div class="exercise-info">
+                            <h5>Heavy Barbell Bench Press</h5>
+                            <p><strong>Target:</strong> Chest Thickness & Volume<br><strong>Sets:</strong> 4 Sets x 8-10 Reps (Heavy)</p>
+                        </div>
+                        <div class="video-box">
+                            <!-- Agar aapke paas video na ho toh aap direct image path ya gif daal sakte ho -->
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3A5Zm85MmN6Y2NnbWwxb2NkaTV4M3Yyd21uMmI5MTR0dzF0M2x3eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9w8nv9gZ878p3F2fPM/giphy.gif" alt="Bench Press Animation">
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-info">
+                            <h5>Barbell Bicep Curls</h5>
+                            <p><strong>Target:</strong> Bicep Peak & Peak Volume<br><strong>Sets:</strong> 3 Sets x 10-12 Reps</p>
+                        </div>
+                        <div class="video-box">
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMml3aHlsb2YxbHlqaHlmb3NscTFrY2FjcDYwcDFrbzE5Mm1jMzJydyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/89AsT84PzDtxu/giphy.gif" alt="Bicep Curl Animation">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CUTTING CONTENT -->
+            <div id="cutting" class="goal-content">
+                <div class="tips-container">
+                    <h4>✂️ Premium Cutting Tips</h4>
+                    <ul>
+                        <li><strong>Caloric Deficit:</strong> Khane me thodi calories kam karo par protein high rakho taaki muscle loss na ho.</li>
+                        <li><strong>NEAT:</strong> Dinbhar me steps complete karo (10k steps daily) taaki fat burning speed up ho.</li>
+                        <li><strong>Intensity:</strong> Gym me heavy weights uthana band mat karo, varna size drop ho jayega.</li>
+                    </ul>
+                </div>
+                <div class="exercise-workout-grid">
+                    <div class="exercise-card">
+                        <div class="exercise-info">
+                            <h5>Incline Dumbbell Flyes</h5>
+                            <p><strong>Target:</strong> Upper Chest Separation & Definition<br><strong>Sets:</strong> 4 Sets x 12-15 Reps</p>
+                        </div>
+                        <div class="video-box">
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDMxeXloMGtxenlzN3g1NjhocmsybDNlNTd0NWh1OTRzazhxeThqNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FocR1B0EPhXDa/giphy.gif" alt="Dumbbell Fly Animation">
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-info">
+                            <h5>Cable Tricep Pushdowns</h5>
+                            <p><strong>Target:</strong> Tricep Horseshoe Horseshoe Cut<br><strong>Sets:</strong> 4 Sets x 15 Reps</p>
+                        </div>
+                        <div class="video-box">
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Y2Y3p2c3V1bjRyY3NnNWszMndleDltM2h4dHBwYnpveGg3b3UzNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WWwSgAt7rWe9G/giphy.gif" alt="Tricep Pushdown Animation">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REGULAR FITNESS CONTENT -->
+            <div id="regular" class="goal-content">
+                <div class="tips-container">
+                    <h4>⚡ Regular Fitness Tips</h4>
+                    <ul>
+                        <li><strong>Consistency:</strong> Week me kam se kam 4-5 din structured workout zaroor karein.</li>
+                        <li><strong>Balanced Diet:</strong> Junk food avoid karein, carbs, protein aur healthy fats ka balance banaye rakhein.</li>
+                        <li><strong>Mobility:</strong> Strength training ke sath flexibility aur joint mobility par bhi dhyan dein.</li>
+                    </ul>
+                </div>
+                <div class="exercise-workout-grid">
+                    <div class="exercise-card">
+                        <div class="exercise-info">
+                            <h5>Goblet Squats</h5>
+                            <p><strong>Target:</strong> Overall Core & Leg Strength<br><strong>Sets:</strong> 3 Sets x 12 Reps</p>
+                        </div>
+                        <div class="video-box">
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXNreTNnNDV0NXBnaHBjdmsybDJhbXRxbDJpMHh2cTVoMTRvdjJrNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bznZHe6uewscg/giphy.gif" alt="Squat Animation">
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-info">
+                            <h5>Lat Pulldowns</h5>
+                            <p><strong>Target:</strong> V-Taper Back & Better Posture<br><strong>Sets:</strong> 3 Sets x 12 Reps</p>
+                        </div>
+                        <div class="video-box">
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNndrOHVvbjRyNXQ0MWt3N256cjE0YWNsbmticDk1OXl6bmlydm5obCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kYw77Tshg79z2/giphy.gif" alt="Lat Pulldown Animation">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: SERVICES -->
     <section id="services" class="section-block">
         <div class="section-container">
             <h2>Our Services</h2>
@@ -340,7 +437,7 @@
         </div>
     </section>
 
-    <!-- SECTION 3: TRANSFORMATIONS -->
+    <!-- SECTION 4: TRANSFORMATIONS -->
     <section id="transformations" class="section-block">
         <div class="section-container">
             <h2>Client Results</h2>
@@ -358,7 +455,7 @@
         </div>
     </section>
 
-    <!-- SECTION 4: CONTACT -->
+    <!-- SECTION 5: CONTACT -->
     <section id="contact" class="section-block">
         <div class="section-container">
             <h2>Get In Touch</h2>
@@ -370,6 +467,25 @@
             </form>
         </div>
     </section>
+
+    <!-- JAVASCRIPT FOR TABS FUNCTIONALITY -->
+    <script>
+        function openGoal(evt, goalName) {
+            var i, goalcontent, tablinks;
+            goalcontent = document.getElementsByClassName("goal-content");
+            for (i = 0; i < goalcontent.length; i++) {
+                goalcontent[i].style.display = "none";
+                goalcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(goalName).style.display = "block";
+            document.getElementById(goalName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 
 </body>
 </html>
